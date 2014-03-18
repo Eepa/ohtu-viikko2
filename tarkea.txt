@@ -1,4 +1,6 @@
+editoitu alkua
 tarkeaa tekstia
 lisaa tekstia
 editoitu
-lisatty tokassa jotakin
+lisatty loppuun jotakin
+
