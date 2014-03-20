@@ -9,8 +9,15 @@ import ohtu.verkkokauppa.Viitegeneraattori;
 public class Main {
 
     public static void main(String[] args) {
-        Kauppa kauppa = new Kauppa(Pankki.getInstance(), 
-                Varasto.getInstance(), Viitegeneraattori.getInstance());
+        
+        Kirjanpito kirjanpito = new Kirjanpito();
+        
+        Varasto varasto = new Varasto(kirjanpito);
+        Pankki pankki = new Pankki(kirjanpito);
+        Viitegeneraattori viitegeneraattori = new Viitegeneraattori();
+        
+        Kauppa kauppa = new Kauppa(pankki, 
+                varasto, viitegeneraattori);
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
         kauppa.aloitaAsiointi();
@@ -29,7 +36,7 @@ public class Main {
         kauppa.tilimaksu("Arto Vihavainen", "3425-1652");
 
         // kirjanpito
-        for (String tapahtuma : Kirjanpito.getInstance().getTapahtumat()) {
+        for (String tapahtuma : kirjanpito.getTapahtumat()) {
             System.out.println(tapahtuma);
         }
     }
