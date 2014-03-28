@@ -22,8 +22,16 @@
     
     <bean id="consoleio" class="ohtu.io.ConsoleIO"></bean>
     
-    <bean id="authenticationservice" class="ohtu.services.AuthenticationService">
+    <bean id="fileuserdao" class="ohtu.data_access.FileUserDAO">
+        <constructor-arg type="java.lang.String" value="tiedosto.txt"/>
+    </bean>
+    
+<!--    <bean id="authenticationservice" class="ohtu.services.AuthenticationService">
         <constructor-arg ref="inmemoryuserdao"/>
+    </bean>-->
+    
+    <bean id="authenticationservice" class="ohtu.services.AuthenticationService">
+        <constructor-arg ref="fileuserdao"/>
     </bean>
     
     
