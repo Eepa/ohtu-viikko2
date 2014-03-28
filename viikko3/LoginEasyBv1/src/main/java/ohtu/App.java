@@ -1,5 +1,6 @@
 package ohtu;
 
+import ohtu.data_access.FileUserDAO;
 import ohtu.data_access.InMemoryUserDao;
 import ohtu.data_access.UserDao;
 import ohtu.io.ConsoleIO;
@@ -54,15 +55,15 @@ public class App {
     }
 
     public static void main(String[] args) {
-//        UserDao dao = new InMemoryUserDao();
-//        IO io = new ConsoleIO();
-//        AuthenticationService auth = new AuthenticationService(dao);
-//        new App(io, auth).run();
+        UserDao dao = new FileUserDAO("tiedosto.txt");
+        IO io = new ConsoleIO();
+        AuthenticationService auth = new AuthenticationService(dao);
+        new App(io, auth).run();
 
-        ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
-
-        App application = ctx.getBean(App.class);
-        application.run();
+//        ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
+//
+//        App application = ctx.getBean(App.class);
+//        application.run();
     }
 
     // testejä debugatessa saattaa olla hyödyllistä testata ohjelman ajamista
