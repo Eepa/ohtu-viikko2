@@ -25,7 +25,8 @@ public class KauppaTest {
         // varmistetaan pankilta että sen metodia maksa on kutsuttu
         verify(mockPankki).maksa(anyString(), anyInt(), anyInt());
         // kutsussa olevein parametrien arvoilla ei testissä ole väliä
-        // kokeile muuttaa koodia siten että testi menee rikki!        
+        // kokeile muuttaa koodia siten että testi menee rikki!  
+        // Muutos: vaihda int --> double 
     }
 
     @Test
@@ -43,6 +44,7 @@ public class KauppaTest {
         // tällä kertaa vaaditaan että ensimmäisen parametrin arvo on oikea
         verify(mockPankki).maksa(eq("1111"), anyInt(), anyInt());
         // kokeile jälleen rikkoa koodi
+        // Rikkominen: Lisää kauppa luokkaan, että tilinumeroon lisätään joku merkki
     }
 
     @Test
