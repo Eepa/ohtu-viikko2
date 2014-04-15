@@ -12,8 +12,8 @@ public class IntJoukkuYksiparametrisellaKonstruktorillaTest extends IntJoukkoTes
     @Override
     public void setUp() {
         joukko = new IntJoukko(3);
-        joukko.lisaa(10);
-        joukko.lisaa(3);
+        joukko.lisaaJoukkoon(10);
+        joukko.lisaaJoukkoon(3);
     }
     
     // perii kaikki testit luokasta IntJoukkoTest
