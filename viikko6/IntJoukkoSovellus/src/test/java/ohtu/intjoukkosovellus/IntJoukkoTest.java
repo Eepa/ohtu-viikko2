@@ -36,19 +36,14 @@ public class IntJoukkoTest {
         assertTrue(joukko.kuuluukoLukuJoJoukkoon(3));
     }
 
-    @Test
-    public void poistettuEiOleEnaaJoukossa() {
-        joukko.poistaJoukosta(3);
-        assertFalse(joukko.kuuluukoLukuJoJoukkoon(3));
-        assertEquals(1, joukko.joukonAlkioidenMaara());
-    }
+
     
     @Test
     public void palautetaanOikeaTaulukko() {
-        int[] odotettu = {3, 55, 99};
+        int[] odotettu = {3,10, 55, 99};
         
         joukko.lisaaJoukkoon(55);
-        joukko.poistaJoukosta(10);
+      
         joukko.lisaaJoukkoon(99);
 
         int[] vastaus = joukko.joukkoTaulukkona();
@@ -65,9 +60,7 @@ public class IntJoukkoTest {
         }
         assertEquals(14, joukko.joukonAlkioidenMaara());
         assertTrue(joukko.kuuluukoLukuJoJoukkoon(11));
-        joukko.poistaJoukosta(11);
-        assertFalse(joukko.kuuluukoLukuJoJoukkoon(11));
-        assertEquals(13, joukko.joukonAlkioidenMaara());
+
     }
     
     @Test

@@ -47,16 +47,17 @@ public class JoukkoOperaatiot {
     }
 
     public static IntJoukko muodostaErotus(IntJoukko a, IntJoukko b) {
-        IntJoukko z = new IntJoukko();
+        IntJoukko erotus = new IntJoukko();
+        
         int[] aTaulu = a.joukkoTaulukkona();
-        int[] bTaulu = b.joukkoTaulukkona();
+  
+        
         for (int i = 0; i < aTaulu.length; i++) {
-            z.lisaaJoukkoon(aTaulu[i]);
+            if(!b.kuuluukoLukuJoJoukkoon(aTaulu[i])){
+               erotus.lisaaJoukkoon(aTaulu[i]); 
+            }
         }
-        for (int i = 0; i < bTaulu.length; i++) {
-            z.poistaJoukosta(i);
-        }
-
-        return z;
+        
+        return erotus;
     }
 }

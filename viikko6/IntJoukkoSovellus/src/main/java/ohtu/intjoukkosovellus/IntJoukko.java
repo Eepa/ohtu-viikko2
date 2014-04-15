@@ -111,26 +111,12 @@ public class IntJoukko {
         return false;
     }
 
-    public boolean poistaJoukosta(int poistettavaLuku) {
-
-        for (int i = 0; i < joukonAlkioidenMaara; i++) {
-            if (poistettavaLuku == joukonLuvut[i]) {
-
-                joukonLuvut[i] = joukonLuvut[joukonAlkioidenMaara - 1];
-                joukonAlkioidenMaara--;
-
-                return true;
-            }
-        }
-
-        return false;
-    }
 
     private void kopioiTaulukko(int[] vanha, int[] uusi) {
         for (int i = 0; i < vanha.length; i++) {
             uusi[i] = vanha[i];
         }
-        
+
     }
 
     public int joukonAlkioidenMaara() {
@@ -150,20 +136,20 @@ public class IntJoukko {
         for (int i = 0; i < joukonAlkioidenMaara - 1; i++) {
             luvut += joukonLuvut[i] + ", ";
         }
-        
+
         return luvut + joukonLuvut[joukonAlkioidenMaara - 1];
     }
 
     public int[] joukkoTaulukkona() {
         int[] palautettavaJoukko = new int[joukonAlkioidenMaara];
-        
+
         for (int i = 0; i < palautettavaJoukko.length; i++) {
             palautettavaJoukko[i] = joukonLuvut[i];
         }
         return palautettavaJoukko;
     }
-    
-    public int[] getJoukonLuvut(){
+
+    public int[] getJoukonLuvut() {
         return this.joukonLuvut;
     }
 
