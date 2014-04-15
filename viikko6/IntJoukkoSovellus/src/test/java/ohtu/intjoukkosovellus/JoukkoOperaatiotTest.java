@@ -12,7 +12,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko eka = teeJoukko(1, 2);
         IntJoukko toka = teeJoukko(3, 4);
 
-        IntJoukko tulos = IntJoukko.yhdiste(eka, toka);
+        IntJoukko tulos = JoukkoOperaatiot.muodostaYhdiste(eka, toka);
         int[] vastauksenLuvut = tulos.joukkoTaulukkona();
         Arrays.sort(vastauksenLuvut);
 
@@ -26,7 +26,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko eka = teeJoukko(1, 2, 4, 5);
         IntJoukko toka = teeJoukko(3, 4, 5);
 
-        IntJoukko tulos = IntJoukko.leikkaus(eka, toka);
+        IntJoukko tulos = JoukkoOperaatiot.muodostaLeikkaus(eka, toka);
         int[] vastauksenLuvut = tulos.joukkoTaulukkona();
         Arrays.sort(vastauksenLuvut);
 
@@ -40,7 +40,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko eka = teeJoukko(1, 2, 3, 4);
         IntJoukko toka = teeJoukko(3, 4, 5);
 
-        IntJoukko tulos = IntJoukko.erotus(eka, toka);
+        IntJoukko tulos = JoukkoOperaatiot.muodostaErotus(eka, toka);
         int[] vastauksenLuvut = tulos.joukkoTaulukkona();
         Arrays.sort(vastauksenLuvut);
 

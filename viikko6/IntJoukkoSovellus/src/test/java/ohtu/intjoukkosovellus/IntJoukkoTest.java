@@ -31,40 +31,46 @@ public class IntJoukkoTest {
 
     @Test
     public void vainLisatytLuvutLoytyvat() {
-        assertTrue(joukko.kuuluukoLukuJoJoukkoon(10));
-        assertFalse(joukko.kuuluukoLukuJoJoukkoon(5));
-        assertTrue(joukko.kuuluukoLukuJoJoukkoon(3));
+        assertTrue(joukko.kuuluukoLukuJoukkoon(10));
+        assertFalse(joukko.kuuluukoLukuJoukkoon(5));
+        assertTrue(joukko.kuuluukoLukuJoukkoon(3));
     }
 
+    @Test
+    public void poistettuEiOleEnaaJoukossa() {
+        joukko.poistaJoukosta(3);
+        assertFalse(joukko.kuuluukoLukuJoukkoon(3));
+        assertEquals(1, joukko.joukonAlkioidenMaara());
+    }
 
-    
     @Test
     public void palautetaanOikeaTaulukko() {
-        int[] odotettu = {3,10, 55, 99};
-        
+        int[] odotettu = {3, 55, 99};
+
         joukko.lisaaJoukkoon(55);
-      
+        joukko.poistaJoukosta(10);
         joukko.lisaaJoukkoon(99);
 
         int[] vastaus = joukko.joukkoTaulukkona();
         Arrays.sort(vastaus);
         assertArrayEquals(odotettu, vastaus);
     }
-    
-    
+
     @Test
-    public void toimiiKasvatuksenJalkeen(){
-        int[] lisattavat = {1,2,4,5,6,7,8,9,11,12,13,14};
+    public void toimiiKasvatuksenJalkeen() {
+        int[] lisattavat = {1, 2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14};
         for (int luku : lisattavat) {
             joukko.lisaaJoukkoon(luku);
         }
         assertEquals(14, joukko.joukonAlkioidenMaara());
-        assertTrue(joukko.kuuluukoLukuJoJoukkoon(11));
-
+        assertTrue(joukko.kuuluukoLukuJoukkoon(11));
+        joukko.poistaJoukosta(11);
+        assertFalse(joukko.kuuluukoLukuJoukkoon(11));
+        assertEquals(13, joukko.joukonAlkioidenMaara());
     }
-    
+
     @Test
-    public void toStringToimii(){
+    public void toStringToimii() {
         assertEquals("{10, 3}", joukko.toString());
     }
 }

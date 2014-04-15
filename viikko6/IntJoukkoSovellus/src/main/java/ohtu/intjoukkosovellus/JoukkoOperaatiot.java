@@ -2,9 +2,6 @@ package ohtu.intjoukkosovellus;
 
 public class JoukkoOperaatiot {
 
-    public JoukkoOperaatiot() {
-
-    }
 
     public static IntJoukko muodostaYhdiste(IntJoukko a, IntJoukko b) {
         IntJoukko yhdisteJoukko = new IntJoukko(a.joukonAlkioidenMaara() + b.joukonAlkioidenMaara());
@@ -27,37 +24,30 @@ public class JoukkoOperaatiot {
 
     public static IntJoukko muodostaLeikkaus(IntJoukko a, IntJoukko b) {
         IntJoukko yhdiste = new IntJoukko();
-        
+
         int[] aTaulu = a.joukkoTaulukkona();
-        int[] bTaulu = b.joukkoTaulukkona();
-        
+
         for (int i = 0; i < aTaulu.length; i++) {
-            
-            
-            for (int j = 0; j < bTaulu.length; j++) {
-                if (aTaulu[i] == bTaulu[j]) {
-                    yhdiste.lisaaJoukkoon(bTaulu[j]);
-                }
+            if (b.kuuluukoLukuJoukkoon(aTaulu[i])) {
+                yhdiste.lisaaJoukkoon(aTaulu[i]);
             }
         }
-        
-        
+
         return yhdiste;
 
     }
 
     public static IntJoukko muodostaErotus(IntJoukko a, IntJoukko b) {
         IntJoukko erotus = new IntJoukko();
-        
+
         int[] aTaulu = a.joukkoTaulukkona();
-  
-        
+
         for (int i = 0; i < aTaulu.length; i++) {
-            if(!b.kuuluukoLukuJoJoukkoon(aTaulu[i])){
-               erotus.lisaaJoukkoon(aTaulu[i]); 
+            if (!b.kuuluukoLukuJoukkoon(aTaulu[i])) {
+                erotus.lisaaJoukkoon(aTaulu[i]);
             }
         }
-        
+
         return erotus;
     }
 }
