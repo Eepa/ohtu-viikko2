@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="wadror-VirtualBox" name="ohtu.TennisGameTest" skipped="0" tests="33" time="0.113" timestamp="2014-04-15T19:15:22">
+<testsuite errors="0" failures="0" hostname="wadror-VirtualBox" name="ohtu.TennisGameTest" skipped="0" tests="33" time="0.118" timestamp="2014-04-16T08:03:08">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -66,7 +66,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ohtu.TennisGameTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/test/results/TEST-ohtu.TennisGameTest.xml crashfile=/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/junitvmwatcher3619061575535970315.properties propsfile=/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/junit364304396442429172.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner ohtu.TennisGameTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/test/results/TEST-ohtu.TennisGameTest.xml crashfile=/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/junitvmwatcher3033413173593961058.properties propsfile=/home/wadror/ohtuviikot/ohtu-viikko2/viikko6/Tennis/build/junit5290855800861024983.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -453,7 +453,7 @@
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/home/wadror/netbeans-7.4/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[0]" time="0.002" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[0]" time="0.001" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[1]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[2]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[3]" time="0.0" />
@@ -461,14 +461,14 @@
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[5]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[6]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[7]" time="0.0" />
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[8]" time="0.001" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[8]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[9]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[10]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[11]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[12]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[13]" time="0.0" />
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[14]" time="0.0" />
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[15]" time="0.001" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[14]" time="0.001" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[15]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[16]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[17]" time="0.001" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[18]" time="0.0" />
@@ -477,13 +477,13 @@
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[21]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[22]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[23]" time="0.0" />
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[24]" time="0.001" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[24]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[25]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[26]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[27]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[28]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[29]" time="0.0" />
-  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[30]" time="0.0" />
+  <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[30]" time="0.001" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[31]" time="0.0" />
   <testcase classname="ohtu.TennisGameTest" name="checkAllScoresTennisGame[32]" time="0.0" />
   <system-out><![CDATA[]]></system-out>
