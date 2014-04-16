@@ -1,5 +1,6 @@
 package com.mycompany.ohmawebkauppa.sovelluslogiikka.ohjaus;
 
+import com.mycompany.webkauppa.ohjaus.Komento;
 import com.mycompany.webkauppa.ohjaus.OstoksenLisaysKoriin;
 import com.mycompany.webkauppa.sovelluslogiikka.*;
 import org.junit.Before;
@@ -13,7 +14,7 @@ public class OstoksenLisaysKoriinTest {
     long tuoteid = 1;
     Tuote tuote;
     
-    OstoksenLisaysKoriin ostoksenLisays;
+    Komento ostoksenLisays;
     
     @Before
     public void setUp() {
