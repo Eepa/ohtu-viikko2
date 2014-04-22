@@ -3,7 +3,7 @@ package com.mycompany.webkauppa;
 import com.google.gson.Gson;
 import com.mycompany.webkauppa.ohjaus.Komento;
 import com.mycompany.webkauppa.sovelluslogiikka.Ostoskori;
-import com.mycompany.webkauppa.ohjaus.OstoksenSuoritus;
+
 import com.mycompany.webkauppa.sovelluslogiikka.Tuote;
 import java.io.IOException;
 import java.util.List;
@@ -37,7 +37,7 @@ public class MaksaOstoksetServlet extends WebKauppaServlet {
             ostoskori = muodostaOstoskori(request);
         }
 
-        Komento ostos = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokorttinumero, ostoskori, varasto);
+        Komento ostos = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokorttinumero, ostoskori, varasto, pankki);
 
         request.setAttribute("osoite", osoite);
         request.setAttribute("hinta", ostoskori.hinta());

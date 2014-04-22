@@ -6,14 +6,14 @@ import java.util.Date;
 public class PankkiFasaadi {
 
     private static PankkiFasaadi instance;
-
-    public static PankkiFasaadi getInstance() {
-        if (instance == null) {
-            instance = new PankkiFasaadi();
-        }
-
-        return instance;
-    }
+//
+//    public static PankkiFasaadi getInstance() {
+//        if (instance == null) {
+//            instance = new PankkiFasaadi();
+//        }
+//
+//        return instance;
+//    }
 
     public PankkiFasaadi() {
         maksut = new ArrayList<String>();

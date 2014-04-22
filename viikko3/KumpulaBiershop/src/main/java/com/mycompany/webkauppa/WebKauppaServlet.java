@@ -4,6 +4,7 @@ package com.mycompany.webkauppa;
 import com.mycompany.webkauppa.ohjaus.Komentotehdas;
 import com.mycompany.webkauppa.sovelluslogiikka.Ostoskori;
 import com.mycompany.webkauppa.sovelluslogiikka.Varasto;
+import com.mycompany.webkauppa.ulkoiset_rajapinnat.PankkiFasaadi;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,9 +18,11 @@ public abstract class WebKauppaServlet extends HttpServlet {
     protected HttpSession sessio;
     protected Varasto varasto;
     protected Komentotehdas komentotehdas;
+    protected PankkiFasaadi pankki;
 
     public WebKauppaServlet() {
         this.varasto = new Varasto();
+        this.pankki = new PankkiFasaadi();
         komentotehdas = new Komentotehdas();
     }        
     

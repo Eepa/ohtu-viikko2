@@ -3,7 +3,7 @@ package com.mycompany.ohmawebkauppa.sovelluslogiikka.ohjaus;
 
 import com.mycompany.webkauppa.ohjaus.Komento;
 import com.mycompany.webkauppa.ohjaus.Komentotehdas;
-import com.mycompany.webkauppa.ohjaus.OstoksenSuoritus;
+
 import com.mycompany.webkauppa.sovelluslogiikka.*;
 import com.mycompany.webkauppa.ulkoiset_rajapinnat.*;
 import org.junit.Before;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class OstoksenSuoritusTest {
-    PankkiFasaadi pankki = PankkiFasaadi.getInstance();
+    PankkiFasaadi pankki = new PankkiFasaadi();
     PankkiFasaadi hylkaavaPankki = teeHylkaavaPankki();
     ToimitusjarjestelmaFasaadi toimitusJarjestelma = ToimitusjarjestelmaFasaadi.getInstance();
     Varasto varasto = new Varasto();
@@ -46,7 +46,7 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuKoriTyhjenee() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
         ostoksenSuoritus.suorita();
 
         assertEquals(0, kori.ostokset().size());
@@ -56,13 +56,13 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuPankinRajapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
         ostoksenSuoritus.suorita();       
     }   
 
     @Test
     public void josMaksuOnnistuuToiRajmituksenapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
         ostoksenSuoritus.suorita();       
     }             
 
@@ -70,7 +70,7 @@ public class OstoksenSuoritusTest {
      
     @Test
     public void josPankkiEiHyvaksyMaksuaPalautetaanFalseToimitustaEiTehda() {        
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
         ostoksenSuoritus.setPankki(hylkaavaPankki);
  
         

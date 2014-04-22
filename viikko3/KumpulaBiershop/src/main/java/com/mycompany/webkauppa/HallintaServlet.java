@@ -1,6 +1,6 @@
 package com.mycompany.webkauppa;
 
-import com.mycompany.webkauppa.ulkoiset_rajapinnat.PankkiFasaadi;
+
 import com.mycompany.webkauppa.ulkoiset_rajapinnat.ToimitusjarjestelmaFasaadi;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ public class HallintaServlet extends WebKauppaServlet {
             throws ServletException, IOException {
 
         request.setAttribute("tuotteet", varasto.tuotteidenLista());
-        request.setAttribute("maksut", PankkiFasaadi.getInstance().maksut());
+        request.setAttribute("maksut", this.pankki.maksut());
         request.setAttribute("toimitukset", ToimitusjarjestelmaFasaadi.getInstance().toimitukset());
 
         naytaSivu("/hallinta.jsp", request, response);
