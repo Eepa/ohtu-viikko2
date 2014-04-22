@@ -14,7 +14,7 @@ public class OstoksenSuoritusTest {
     PankkiFasaadi pankki = PankkiFasaadi.getInstance();
     PankkiFasaadi hylkaavaPankki = teeHylkaavaPankki();
     ToimitusjarjestelmaFasaadi toimitusJarjestelma = ToimitusjarjestelmaFasaadi.getInstance();
-    Varasto varasto = Varasto.getInstance();
+    Varasto varasto = new Varasto();
     Komentotehdas komentotehdas = new Komentotehdas();
     
     long tuoteId1;
@@ -46,7 +46,7 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuKoriTyhjenee() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
         ostoksenSuoritus.suorita();
 
         assertEquals(0, kori.ostokset().size());
@@ -56,13 +56,13 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuPankinRajapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
         ostoksenSuoritus.suorita();       
     }   
 
     @Test
     public void josMaksuOnnistuuToiRajmituksenapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
         ostoksenSuoritus.suorita();       
     }             
 
@@ -70,7 +70,7 @@ public class OstoksenSuoritusTest {
      
     @Test
     public void josPankkiEiHyvaksyMaksuaPalautetaanFalseToimitustaEiTehda() {        
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto);
         ostoksenSuoritus.setPankki(hylkaavaPankki);
  
         

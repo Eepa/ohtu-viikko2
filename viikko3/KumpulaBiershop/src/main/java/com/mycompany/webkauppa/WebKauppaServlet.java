@@ -19,7 +19,7 @@ public abstract class WebKauppaServlet extends HttpServlet {
     protected Komentotehdas komentotehdas;
 
     public WebKauppaServlet() {
-        varasto = Varasto.getInstance();
+        this.varasto = new Varasto();
         komentotehdas = new Komentotehdas();
     }        
     

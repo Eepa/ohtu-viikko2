@@ -10,7 +10,7 @@ import com.mycompany.webkauppa.sovelluslogiikka.*;
 
 public class OstoksenPoistoKoristaTest {
 
-    Varasto varasto = Varasto.getInstance();
+    Varasto varasto = new Varasto();
     Ostoskori kori;
     long tuoteid = 1;
     Komento ostoksenPoisto;
@@ -25,7 +25,7 @@ public class OstoksenPoistoKoristaTest {
 
     @Test
     public void poistettuTuoteEiEnaaKorissa() {
-        ostoksenPoisto = this.komentotehdas.ostoksenPoistoKorista(kori, tuoteid);
+        ostoksenPoisto = this.komentotehdas.ostoksenPoistoKorista(kori, tuoteid, varasto);
         ostoksenPoisto.suorita();
     
         assertEquals(0, kori.tuotteitaKorissa());
@@ -37,7 +37,7 @@ public class OstoksenPoistoKoristaTest {
     public void tuotteenMaaraKasvaa(){
         int varastossaAluksi = varasto.etsiTuote(tuoteid).getSaldo();
         
-        ostoksenPoisto = this.komentotehdas.ostoksenPoistoKorista(kori, tuoteid);
+        ostoksenPoisto = this.komentotehdas.ostoksenPoistoKorista(kori, tuoteid, varasto);
         ostoksenPoisto.suorita();
     
         assertEquals(varastossaAluksi+1, varasto.etsiTuote(tuoteid).getSaldo());

@@ -11,10 +11,10 @@ public class OstoksenLisaysKoriin implements Komento{
     private long tuoteId;
     private Varasto varasto;
 
-    OstoksenLisaysKoriin(Ostoskori ostoskori, long tuoteId) {
+    OstoksenLisaysKoriin(Ostoskori ostoskori, long tuoteId, Varasto varasto) {
         this.ostoskori = ostoskori;
         this.tuoteId = tuoteId;
-        this.varasto = Varasto.getInstance();
+        this.varasto = varasto;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.mycompany.webkauppa.scenarios;
 
+import com.mycompany.webkauppa.sovelluslogiikka.Varasto;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -16,10 +17,12 @@ import org.junit.Test;
 
 public class ScenariosBase extends JUnitStory {
     private Class stepDefinitionClass;
+    private Varasto varasto;
     
     public ScenariosBase(Class stepDefinitionClass) {
         super(); 
-        this.stepDefinitionClass = stepDefinitionClass;   
+        this.stepDefinitionClass = stepDefinitionClass;
+        this.varasto = new Varasto();
     }   
     
     @Override

@@ -14,7 +14,7 @@ public class PoistaOstoskoristaServlet extends WebKauppaServlet {
                 
         long tuoteId = Long.parseLong( request.getParameter("tuoteId") );
         
-        Komento poisto = this.komentotehdas.ostoksenPoistoKorista(haeSessionOstoskori(request),  tuoteId );          
+        Komento poisto = this.komentotehdas.ostoksenPoistoKorista(haeSessionOstoskori(request),  tuoteId, varasto );          
         poisto.suorita();        
         
         naytaSivu("/MaksaOstokset", request, response);

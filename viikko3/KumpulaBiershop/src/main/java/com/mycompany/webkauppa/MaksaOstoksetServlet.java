@@ -37,7 +37,7 @@ public class MaksaOstoksetServlet extends WebKauppaServlet {
             ostoskori = muodostaOstoskori(request);
         }
 
-        Komento ostos = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokorttinumero, ostoskori);
+        Komento ostos = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokorttinumero, ostoskori, varasto);
 
         request.setAttribute("osoite", osoite);
         request.setAttribute("hinta", ostoskori.hinta());

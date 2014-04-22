@@ -9,9 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class HallintasivuNayttaaTuotteidenTiedotScenarios extends WebScenarioBase {
-
-    public HallintasivuNayttaaTuotteidenTiedotScenarios() {
+    private Varasto varasto; 
+    public HallintasivuNayttaaTuotteidenTiedotScenarios(Varasto varasto) {
         super(HallintasivuNayttaaTuotteidenTiedotScenarios.class);
+        this.varasto = varasto;
     }
 
     @Given("browser opened")
@@ -37,9 +38,9 @@ public class HallintasivuNayttaaTuotteidenTiedotScenarios extends WebScenarioBas
     public void whenYouHaveItemsInStock() {
         tuotteet = new ArrayList<Tuote>();
         
-        tuotteet.add( Varasto.getInstance().etsiTuote(1) ); 
-        tuotteet.add( Varasto.getInstance().etsiTuote(2) );
-        tuotteet.add( Varasto.getInstance().etsiTuote(3) );
+        tuotteet.add( this.varasto.etsiTuote(1) ); 
+        tuotteet.add( this.varasto.etsiTuote(2) );
+        tuotteet.add( this.varasto.etsiTuote(3) );
     }
 
     @Then("the price and saldo of items is correctly shown")

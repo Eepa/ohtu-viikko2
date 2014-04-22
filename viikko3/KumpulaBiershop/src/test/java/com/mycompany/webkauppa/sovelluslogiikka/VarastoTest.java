@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class VarastoTest {
-    Varasto varasto = Varasto.getInstance();          
+    Varasto varasto = new Varasto();          
 
     @Test
     public void uudenTuotteenVoiLisata() {

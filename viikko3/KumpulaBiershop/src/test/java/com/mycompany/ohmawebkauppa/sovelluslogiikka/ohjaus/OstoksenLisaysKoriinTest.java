@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 
 public class OstoksenLisaysKoriinTest {
-    Varasto varasto = Varasto.getInstance();
+    Varasto varasto = new Varasto();
     Ostoskori kori;    
     long tuoteid = 1;
     Tuote tuote;
@@ -29,7 +29,7 @@ public class OstoksenLisaysKoriinTest {
     
     @Test
     public void koriSisaltaaLisatynTuotteen() {
-        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid);
+        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid, varasto);
         ostoksenLisays.suorita();
     
         assertEquals(1, kori.tuotteitaKorissa());
@@ -41,7 +41,7 @@ public class OstoksenLisaysKoriinTest {
     public void tuotteenMaaraVahentyy(){
         int varastossaAluksi = varasto.etsiTuote(tuoteid).getSaldo();
         
-        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid);
+        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid, varasto);
         ostoksenLisays.suorita();
     
         assertEquals(varastossaAluksi-1, varasto.etsiTuote(tuoteid).getSaldo());
@@ -51,7 +51,7 @@ public class OstoksenLisaysKoriinTest {
     public void josTuotteenVarastosaldoNollaEiTuotettaLaitetaOstoskoriin() {
         varasto.etsiTuote(tuoteid).setSaldo(0);
         
-        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid);
+        ostoksenLisays = this.komentotehdas.ostoksenLisaysKoriin(kori, tuoteid, varasto);
         ostoksenLisays.suorita();
     
         assertEquals(0, kori.tuotteitaKorissa());

@@ -21,7 +21,7 @@ public class Varasto {
     }
     private List<Tuote> tuotteet;
 
-    private Varasto() {
+    public Varasto() {
         tuotteet = tuoteDAO.findAll();
     }
 
