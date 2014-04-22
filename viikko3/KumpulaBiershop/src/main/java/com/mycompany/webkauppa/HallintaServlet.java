@@ -1,7 +1,7 @@
 package com.mycompany.webkauppa;
 
 
-import com.mycompany.webkauppa.ulkoiset_rajapinnat.ToimitusjarjestelmaFasaadi;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ public class HallintaServlet extends WebKauppaServlet {
 
         request.setAttribute("tuotteet", varasto.tuotteidenLista());
         request.setAttribute("maksut", this.pankki.maksut());
-        request.setAttribute("toimitukset", ToimitusjarjestelmaFasaadi.getInstance().toimitukset());
+        request.setAttribute("toimitukset", this.toimitusjarjestelma.toimitukset());
 
         naytaSivu("/hallinta.jsp", request, response);
     }

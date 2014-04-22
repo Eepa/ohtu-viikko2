@@ -5,6 +5,7 @@ package com.mycompany.webkauppa.ohjaus;
 import com.mycompany.webkauppa.sovelluslogiikka.Ostoskori;
 import com.mycompany.webkauppa.sovelluslogiikka.Varasto;
 import com.mycompany.webkauppa.ulkoiset_rajapinnat.PankkiFasaadi;
+import com.mycompany.webkauppa.ulkoiset_rajapinnat.ToimitusjarjestelmaFasaadi;
 
 
 public class Komentotehdas {
@@ -17,8 +18,8 @@ public class Komentotehdas {
         return new OstoksenPoistoKorista(ostoskori,  tuoteid, varasto);
     }
      
-     public Komento ostoksenSuoritus(String nimi, String osoite, String luottokorttinumero, Ostoskori kori, Varasto varasto, PankkiFasaadi pankki){
-         return new OstoksenSuoritus(nimi, osoite, luottokorttinumero, kori, varasto, pankki);
+     public Komento ostoksenSuoritus(String nimi, String osoite, String luottokorttinumero, Ostoskori kori, Varasto varasto, PankkiFasaadi pankki, ToimitusjarjestelmaFasaadi toimitusjarjestelma){
+         return new OstoksenSuoritus(nimi, osoite, luottokorttinumero, kori, varasto, pankki, toimitusjarjestelma);
      }
     
     

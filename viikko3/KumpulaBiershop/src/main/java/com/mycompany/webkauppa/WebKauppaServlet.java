@@ -5,6 +5,7 @@ import com.mycompany.webkauppa.ohjaus.Komentotehdas;
 import com.mycompany.webkauppa.sovelluslogiikka.Ostoskori;
 import com.mycompany.webkauppa.sovelluslogiikka.Varasto;
 import com.mycompany.webkauppa.ulkoiset_rajapinnat.PankkiFasaadi;
+import com.mycompany.webkauppa.ulkoiset_rajapinnat.ToimitusjarjestelmaFasaadi;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,11 +20,13 @@ public abstract class WebKauppaServlet extends HttpServlet {
     protected Varasto varasto;
     protected Komentotehdas komentotehdas;
     protected PankkiFasaadi pankki;
+    protected ToimitusjarjestelmaFasaadi toimitusjarjestelma;
 
     public WebKauppaServlet() {
         this.varasto = new Varasto();
         this.pankki = new PankkiFasaadi();
         komentotehdas = new Komentotehdas();
+        this.toimitusjarjestelma = new ToimitusjarjestelmaFasaadi();
     }        
     
     public void naytaSivu(String url, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

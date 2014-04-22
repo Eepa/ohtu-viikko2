@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class OstoksenSuoritusTest {
     PankkiFasaadi pankki = new PankkiFasaadi();
     PankkiFasaadi hylkaavaPankki = teeHylkaavaPankki();
-    ToimitusjarjestelmaFasaadi toimitusJarjestelma = ToimitusjarjestelmaFasaadi.getInstance();
+    ToimitusjarjestelmaFasaadi toimitusJarjestelma = new ToimitusjarjestelmaFasaadi();
     Varasto varasto = new Varasto();
     Komentotehdas komentotehdas = new Komentotehdas();
     
@@ -46,7 +46,7 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuKoriTyhjenee() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki, this.toimitusJarjestelma);
         ostoksenSuoritus.suorita();
 
         assertEquals(0, kori.ostokset().size());
@@ -56,13 +56,13 @@ public class OstoksenSuoritusTest {
     
     @Test
     public void josMaksuOnnistuuPankinRajapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki, this.toimitusJarjestelma);
         ostoksenSuoritus.suorita();       
     }   
 
     @Test
     public void josMaksuOnnistuuToiRajmituksenapintaaKaytetty() {
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki, this.toimitusJarjestelma);
         ostoksenSuoritus.suorita();       
     }             
 
@@ -70,7 +70,7 @@ public class OstoksenSuoritusTest {
      
     @Test
     public void josPankkiEiHyvaksyMaksuaPalautetaanFalseToimitustaEiTehda() {        
-        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki);
+        ostoksenSuoritus = this.komentotehdas.ostoksenSuoritus(nimi, osoite, luottokortti, kori, varasto, pankki, this.toimitusJarjestelma);
         ostoksenSuoritus.setPankki(hylkaavaPankki);
  
         
