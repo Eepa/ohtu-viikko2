@@ -11,4 +11,9 @@ public class Komentotehdas {
         return new OstoksenLisaysKoriin(ostoskori, tuoteid);
     }
     
+     public Komento ostoksenPoistoKorista(Ostoskori ostoskori, long tuoteid){
+        return new OstoksenPoistoKorista(ostoskori,  tuoteid);
+    }
+    
+    
 }
