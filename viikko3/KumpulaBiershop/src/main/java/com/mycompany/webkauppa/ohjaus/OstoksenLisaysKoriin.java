@@ -3,6 +3,7 @@ package com.mycompany.webkauppa.ohjaus;
 import com.mycompany.webkauppa.sovelluslogiikka.Ostoskori;
 import com.mycompany.webkauppa.sovelluslogiikka.Tuote;
 import com.mycompany.webkauppa.sovelluslogiikka.Varasto;
+import com.mycompany.webkauppa.ulkoiset_rajapinnat.PankkiFasaadi;
 
 public class OstoksenLisaysKoriin implements Komento{
 
@@ -17,15 +18,20 @@ public class OstoksenLisaysKoriin implements Komento{
     }
 
     @Override
-    public void suorita() {
+    public boolean suorita() {
         boolean saatiinTuote = varasto.otaVarastosta(tuoteId);
         
         if (!saatiinTuote) {
-            return;
+            return false;
         }
        
         Tuote tuote = varasto.etsiTuote(tuoteId);                      
         ostoskori.lisaaTuote(tuote);                
+        return true;
+    }
 
+    @Override
+    public void setPankki(PankkiFasaadi hylkaavaPankki) {
+        
     }
 }

@@ -14,6 +14,10 @@ public class Komentotehdas {
      public Komento ostoksenPoistoKorista(Ostoskori ostoskori, long tuoteid){
         return new OstoksenPoistoKorista(ostoskori,  tuoteid);
     }
+     
+     public Komento ostoksenSuoritus(String nimi, String osoite, String luottokorttinumero, Ostoskori kori){
+         return new OstoksenSuoritus(nimi, osoite, luottokorttinumero, kori);
+     }
     
     
 }
