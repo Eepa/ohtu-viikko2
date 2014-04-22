@@ -2,8 +2,6 @@
 package com.mycompany.webkauppa;
 
 import com.mycompany.webkauppa.ohjaus.Komento;
-import com.mycompany.webkauppa.ohjaus.Komentotehdas;
-import com.mycompany.webkauppa.ohjaus.OstoksenLisaysKoriin;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,7 @@ public class LisaaOstoskoriinServlet extends WebKauppaServlet {
                 
         long tuoteId = Long.parseLong( request.getParameter("tuoteId") );
                 
-        Komento lisays = new OstoksenLisaysKoriin(haeSessionOstoskori(request), tuoteId);
+        Komento lisays = this.komentotehdas.ostoksenLisaysKoriin(haeSessionOstoskori(request), tuoteId);
         lisays.suorita();
         
         naytaSivu("/Tuotelista", request, response);   
